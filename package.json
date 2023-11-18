@@ -9,13 +9,26 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@mozilla/readability": "^0.4.4",
+    "@react-native-async-storage/async-storage": "^1.19.4",
+    "@react-navigation/bottom-tabs": "^6.5.11",
+    "@react-navigation/native": "^6.1.9",
+    "@react-navigation/native-stack": "^6.9.17",
+    "@react-navigation/stack": "^6.3.20",
+    "@tanstack/react-query": "^4.32.1",
+    "axios": "^1.6.2",
     "expo": "~49.0.15",
     "expo-status-bar": "~1.6.0",
+    "jsdom": "^22.1.0",
     "react": "18.2.0",
-    "react-native": "0.72.6"
+    "react-native": "0.72.6",
+    "react-native-gesture-handler": "^2.13.4",
+    "react-native-reanimated": "^3.5.4",
+    "react-native-screens": "^3.27.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
+    "@types/jsdom": "^21.1.5",
     "@types/react": "~18.2.14",
     "typescript": "^5.1.3"
   },
