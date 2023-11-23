@@ -17,7 +17,7 @@ type NavigationProps = NativeStackNavigationProp<NavigationParamList>;
 
 const ProfileScreen = () => {
   const navigation = useNavigation<NavigationProps>();
-  const { nama, logout } = useAuth();
+  const { nama, logout, nim } = useAuth();
 
   const logOutPressed = () => {
     logout();
@@ -35,25 +35,29 @@ const ProfileScreen = () => {
           />
           <View style={styles.dashedBorder} />
         </View>
-        <Text style={styles.name}>{nama}</Text>
-        <Text>Jakarta</Text>
+        <View style={{ alignItems: "center" }}>
+          <Text style={styles.name}>{nama}</Text>
+          <Text>{nim}</Text>
+        </View>
+
         <Text
           style={{
             paddingHorizontal: 60,
             textAlign: "justify",
-            marginVertical: 20,
+            marginTop: 20,
+            lineHeight: 22,
           }}
         >
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur
-          quaerat, quam quae voluptatibus beatae animi rem commodi autem dolorem
-          corporis dolores repellat velit exercitationem at veniam sint sapiente
-          eligendi vitae.
+          News App merupakan aplikasi yang dibuat menggunakan React Native
+          dengan bahasa Typescript dimana data dalam aplikasi ini menggunakan
+          API dari Newsapi.org yang merupakan layanan API dengan beragam berita
+          yang di ambil dari berbagai sumber.
         </Text>
-      </View>
-      <View style={{ backgroundColor: "white" }}>
-        <TouchableOpacity onPress={logOutPressed} style={styles.logoutButton}>
-          <Text style={styles.logoutText}>Log Out</Text>
-        </TouchableOpacity>
+        <View style={{ backgroundColor: "white" }}>
+          <TouchableOpacity onPress={logOutPressed} style={styles.logoutButton}>
+            <Text style={styles.logoutText}>Log Out</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -64,7 +68,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 20,
     backgroundColor: "white",
-    alignItems: "center",
+    // alignItems: "center",
   },
   imageContainer: {
     position: "relative",
@@ -94,8 +98,8 @@ const styles = StyleSheet.create({
   logoutButton: {
     padding: 10,
     borderRadius: 5,
-    marginVertical: 40,
-    marginHorizontal: 70,
+    marginVertical: 30,
+    marginHorizontal: 50,
   },
   logoutText: {
     color: "red",

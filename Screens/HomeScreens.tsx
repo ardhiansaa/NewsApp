@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import {
   SafeAreaView,
   View,
@@ -42,7 +42,6 @@ const HomeScreens = () => {
       const newIndex = (scrollIndexRef.current + 1) % newsData.articles.length;
 
       if (newIndex === 4) {
-        // Reset the index to 0 when it reaches the last index
         flatListRef.current.scrollToIndex({
           animated: true,
           index: 0,

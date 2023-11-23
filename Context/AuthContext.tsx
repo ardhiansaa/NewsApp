@@ -2,8 +2,9 @@ import React, { createContext, useState, useContext, ReactNode } from "react";
 
 interface AuthContextType {
   nama: string;
-  login: (name: string) => void;
+  login: (name: string, nim: string) => void;
   logout: () => void;
+  nim: string;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -12,9 +13,11 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const [nama, setNama] = useState<string>("");
+  const [nim, setNIM] = useState<string>("");
 
-  const login = (name: string) => {
+  const login = (name: string, nim: string) => {
     setNama(name);
+    setNIM(nim);
   };
 
   const logout = () => {
@@ -22,7 +25,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
   };
 
   return (
-    <AuthContext.Provider value={{ nama, login, logout }}>
+    <AuthContext.Provider value={{ nama, nim, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

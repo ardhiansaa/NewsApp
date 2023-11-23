@@ -20,7 +20,9 @@ type NavigationProps = NativeStackNavigationProp<NavigationParamList>;
 const LoginScreens = () => {
   const navigation = useNavigation<NavigationProps>();
   const [nama, setNama] = useState<string>("");
+  const [nim, setNIM] = useState<string>("");
   const [isNamaEmpty, setIsNamaEmpty] = useState<boolean>(false);
+  const [isNIMEmpty, setIsNIMEmpty] = useState<boolean>(false);
   const { login } = useAuth();
 
   const masukPressed = () => {
@@ -30,15 +32,12 @@ const LoginScreens = () => {
     } else {
       setIsNamaEmpty(false);
       navigation.navigate("Home");
-      login(nama);
+      login(nama, nim);
     }
   };
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <StatusBar
-        backgroundColor="white"
-        barStyle="dark-content" // You can use "light-content" or "default" as well
-      />
+      <StatusBar backgroundColor="white" barStyle="dark-content" />
       <View style={styles.container}>
         <Image
           source={require("../assets/logo.png")}
@@ -50,7 +49,7 @@ const LoginScreens = () => {
             marginBottom: 40,
           }}
         />
-        <Text
+        {/* <Text
           style={{
             color: "black",
             alignSelf: "center",
@@ -60,7 +59,7 @@ const LoginScreens = () => {
           }}
         >
           Masuk
-        </Text>
+        </Text> */}
         <View
           style={[
             styles.containerInput,
@@ -73,6 +72,16 @@ const LoginScreens = () => {
             onChangeText={(text) => {
               setNama(text.toUpperCase());
               setIsNamaEmpty(false);
+            }}
+            autoFocus={true}
+            style={styles.inputNama}
+          />
+          <TextInput
+            placeholder="Isi nama NIM"
+            value={nim}
+            onChangeText={(text) => {
+              setNIM(text.toUpperCase());
+              setIsNIMEmpty(false);
             }}
             autoFocus={true}
             style={styles.inputNama}
@@ -97,7 +106,10 @@ const styles = StyleSheet.create({
   },
   inputNama: {
     padding: 10,
-    marginVertical: 7,
+    paddingLeft: 25,
+    textAlign: "justify",
+    marginVertical: 0,
+    borderBottomWidth: 0.5,
   },
   masukButton: {
     backgroundColor: "black",

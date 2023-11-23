@@ -9,6 +9,7 @@ import HomeScreens from "../Screens/HomeScreens";
 import AboutScreen from "../Screens/AboutScreens";
 import DetailScreen from "../Screens/DetailScreens";
 import ExploreScreens from "../Screens/ExploreScreens";
+import SearchScreens from "../Screens/SearchScreens";
 
 const Stack = createNativeStackNavigator();
 const tab = createBottomTabNavigator();
@@ -52,17 +53,26 @@ const BottomTabNavigator = () => {
         }}
       />
       <tab.Screen
-        name="About"
-        component={AboutScreen}
+        name="Search"
+        component={SearchScreens}
         options={{
           tabBarIcon: ({ focused }) => (
             <Icons
-              name={
-                focused
-                  ? "ios-information-circle"
-                  : "ios-information-circle-outline"
-              }
-              size={33}
+              name={focused ? "ios-search-circle" : "ios-search-circle-outline"}
+              size={45}
+              color={focused ? "black" : "grey"}
+            />
+          ),
+        }}
+      />
+      <tab.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Icons
+              name={focused ? "ios-person" : "ios-person-outline"}
+              size={24}
               color={focused ? "black" : "grey"}
             />
           ),
@@ -103,16 +113,16 @@ const Navigations = () => {
           headerTitle: "News App",
           headerTitleAlign: "center",
 
-          headerRight: () => (
-            <TouchableOpacity
-              onPress={() => navigation.navigate("Profile")}
-              style={styles.iconContainer}
-            >
-              <View style={styles.iconBackground}>
-                <Icons name="ios-person-outline" size={25} color="black" />
-              </View>
-            </TouchableOpacity>
-          ),
+          // headerRight: () => (
+          //   <TouchableOpacity
+          //     onPress={() => navigation.navigate("Profile")}
+          //     style={styles.iconContainer}
+          //   >
+          //     <View style={styles.iconBackground}>
+          //       <Icons name="ios-person-outline" size={25} color="black" />
+          //     </View>
+          //   </TouchableOpacity>
+          // ),
         })}
       />
 

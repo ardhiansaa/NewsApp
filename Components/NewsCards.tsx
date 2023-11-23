@@ -1,12 +1,5 @@
-import React, { FC } from "react";
-import {
-  View,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-  Text,
-  FlatList,
-} from "react-native";
+import React from "react";
+import { View, StyleSheet, Image, Text } from "react-native";
 
 interface INewsCardsProps {
   textJudul: string;
@@ -60,6 +53,7 @@ const styles = StyleSheet.create({
     color: "black",
     fontWeight: "bold",
     fontSize: 14,
+    lineHeight: 23,
   },
   textTimeStamp: {
     color: "grey",

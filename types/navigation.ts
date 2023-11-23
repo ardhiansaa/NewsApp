@@ -6,4 +6,5 @@ export type NavigationParamList = {
   NewsApp: undefined;
   NewsDetails: { newsItem: any };
   Explore: undefined;
+  Search: undefined;
 };

@@ -1,12 +1,5 @@
 import React, { FC } from "react";
-import {
-  View,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-  Text,
-  FlatList,
-} from "react-native";
+import { View, StyleSheet, Image, Text } from "react-native";
 
 interface IHeadlinesCards {
   textJudul: string;
@@ -45,12 +38,12 @@ const styles = StyleSheet.create({
     borderColor: "#DDDDDD",
     overflow: "hidden",
     height: 200,
-    width: 340, // Clip the child components to the parent's bounds
+    width: 340,
   },
   image: {
     width: 360,
     height: 200,
-    position: "absolute", // Position the image absolutely
+    position: "absolute",
   },
   textContainer: {
     flex: 1,
@@ -63,7 +56,7 @@ const styles = StyleSheet.create({
     color: "white",
   },
   textJudul: {
-    color: "white", // Set the text color to white
+    color: "white",
     fontWeight: "bold",
     fontSize: 14,
   },
